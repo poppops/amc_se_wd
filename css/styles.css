@@ -1,3 +1,4 @@
+*/
 /* Global Styles (Strength: 1) */
 
 p {
@@ -15,58 +16,86 @@ p {
   color: purple;
 }
 
-/* ID Styles (Strength: 100) */
+@media screen and (max-width: 600px) {
+  #main {
+    display: flex;
+    flex-direction: column;
+    background-color: green;
+  }
 
-#actions_title {
-  font-size: 3em;
-  color: aqua;
+  #actions {
+    background-color: blanchedalmond;
+  }
+
+  #login-form {
+    background-color: blueviolet;
+  }
+
+  #content {
+    flex-grow: 1;
+  }
+
+  #actions {
+    flex-grow: 1;
+  }
 }
 
-/* An inline style is the most specific rule you can apply. */
+@media screen and (min-width: 600px) {
+  /* ID Styles (Strength: 100) */
 
-* {
-  margin: 0;
-  padding: 0;
-}
+  #actions_title {
+    font-size: 3em;
+    color: aqua;
+  }
 
-#wrapper {
-  background-color: aquamarine;
-  padding: 0.5em;
-}
+  /* An inline style is the most specific rule you can apply. */
 
-#header {
-  background-color: lightgray;
-  height: 10vh;
-  text-align: center;
-}
+  * {
+    margin: 0;
+    padding: 0;
+  }
 
-#main {
-  background-color: bisque;
-  min-height: 80vh;
-  display: flex;
-  flex-direction: row;
-}
+  #wrapper {
+    background-color: aquamarine;
+    padding: 0.5em;
+  }
 
-#content {
-  flex-grow: 2;
-  background-color: brown;
-}
+  #header {
+    background-color: lightgray;
+    height: 10vh;
+    text-align: center;
+  }
 
-#actions {
-  flex-grow: 1;
-  background-color: yellow;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-}
+  #main {
+    background-color: bisque;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: row;
+  }
 
-#footer {
-  background-color: purple;
-  min-height: 10vh;
-}
-#login-form {
-  background-color: green;
-}
-#register-form {
-  background-color: red;
+  #content {
+    flex-grow: 2;
+    background-color: brown;
+  }
+
+  #actions {
+    flex-grow: 1;
+    background-color: yellow;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  #footer {
+    background-color: purple;
+    min-height: 10vh;
+  }
+
+  #login-form {
+    background-color: green;
+  }
+
+  #register-form {
+    background-color: red;
+  }
 }
