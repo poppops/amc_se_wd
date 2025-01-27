@@ -1,0 +1,22 @@
+@media screen and (max-width: 600px) {
+  #wrapper {
+    width: 100%;
+  }
+
+  header {
+    display: flex;
+    flex-direction: column-reverse;
+    background-color: aqua;
+    text-align: center;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  nav div {
+    width: 75px;
+  }
+}
