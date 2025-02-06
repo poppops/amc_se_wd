@@ -1,0 +1,61 @@
+{% extends "default_page.html" %} {%block page_content%}
+
+<div>
+  <h1>Login</h1>
+  <form method="get" action="/intro">
+    <p>
+      <label for="login-username">Full Name:</label>
+      <input
+        type="text"
+        id="login-username"
+        name="username"
+        placeholder="Enter your username"
+      />
+    </p>
+    <p>
+      <label for="login-password">Password</label>
+      <input
+        type="password"
+        id="login-password"
+        name="password"
+        placeholder="Enter your password"
+      />
+      <input type="submit" name="login" id="enter" value="LOGIN" />
+    </p>
+  </form>
+</div>
+
+<div>
+  <h1>Register</h1>
+  <form method="post" action="/intro">
+    <p>
+      <label for="fullname">Full Name:</label>
+      <input
+        type="text"
+        id="fullname"
+        name="fullname"
+        placeholder="Enter your name"
+      />
+    </p>
+    <p>
+      <label for="login-username">User Name:</label>
+      <input
+        type="text"
+        id="login-username"
+        name="username"
+        placeholder="Enter your username"
+      />
+    </p>
+    <p>
+      <label for="login-password">Password</label>
+      <input
+        type="password"
+        id="login-password"
+        name="password"
+        placeholder="Enter your password"
+      />
+      <input type="submit" name="login" id="enter" value="LOGIN" />
+    </p>
+  </form>
+</div>
+{%endblock%}
