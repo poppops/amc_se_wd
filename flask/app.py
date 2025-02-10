@@ -1,6 +1,11 @@
 from flask import Flask, render_template, request
+import os
 
 app = Flask(__name__)
+
+# Tell the application where to store uploaded files
+# We created a folder called uploads but you can name it as you like
+app.config["UPLOAD_FOLDER"] = "uploads"
 
 
 # Attach a decorator to the function that handles the route
@@ -59,3 +64,20 @@ def landing_page():
 @app.route("/form-handling")
 def formHandler():
     return render_template("form.html", page_title="Handling Form Submissions")
+
+
+@app.route("/file-uploading", methods=["GET", "POST"])
+def fileUploading():
+    if request.method == "POST":
+        print(request.form)
+        print(request.files)
+
+        # Assign the uploaded file to a variable
+        profile_pic = request.files["profile_photo"]
+        # Save the file on the file system (in our uploads folder)
+        profile_pic.save(
+            os.path.join(app.config["UPLOAD_FOLDER"], profile_pic.filename)
+        )
+
+    # Pass the file name into the template to display to the user
+    return render_template("file_upload.html", uploaded_file=profile_pic.filename)

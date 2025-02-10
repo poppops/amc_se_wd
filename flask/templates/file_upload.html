@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Contact Form</title>
+  </head>
+  <!-- First name
+    Last name
+    Email Address
+    Password
+    Profile Picture -->
+  <body>
+    <form method="post" action="" enctype="multipart/form-data">
+      <p>
+        <label for="firstName">First Name:</label>
+        <input
+          name="firstName"
+          type="text"
+          placeholder="Please enter your First Name"
+        />
+      </p>
+      <p>
+        <label for="lastName">Last Name:</label>
+        <input
+          name="lastName"
+          type="text"
+          placeholder="Please enter your Last Name"
+        />
+      </p>
+      <p>
+        <label for="Email">Email Address:</label>
+        <input
+          name="Email"
+          type="email"
+          placeholder="Please enter a valide EmailAddress"
+        />
+      </p>
+      <p>
+        <label for="password">Password:</label>
+        <input
+          name="password"
+          type="password"
+          placeholder="Enter a strong password"
+        />
+      </p>
+      <p>
+        <label for="profile_photo">Profile photo:</label>
+        <input name="profile_photo" type="file" />
+      </p>
+      <p>
+        <input type="submit" value="Submit" />
+      </p>
+    </form>
+  </body>
+</html>
