@@ -39,6 +39,7 @@ values = (
 )
 
 cursor.execute(insertQuery, values)
+cursor.commit()
 
 # Insert multiple records
 values = [
@@ -59,3 +60,4 @@ values = [
 ]
 
 cursor.executemany(insertQuery, values)
+cursor.commit()
