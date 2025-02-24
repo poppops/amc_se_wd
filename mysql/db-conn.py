@@ -16,7 +16,7 @@ conn = mysql.connector.connect(
 """
 The cursor object is used to interact with the database
 """
-curosor = conn.cursor()
+cursor = conn.cursor()
 
 # Execute a query
 sql = "SELECT * FROM novel_list"

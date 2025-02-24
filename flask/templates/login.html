@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Welcome {{ username }}</h1>
+
+    {% if logged_in == False %}
+    <form method="post">
+      <h1>Login</h1>
+      <p>
+        <input type="text" name="username" placeholder="Username" />
+      </p>
+      <p>
+        <input type="password" name="password" placeholder="Password" />
+      </p>
+
+      <p>
+        <input type="submit" value="Login" />
+      </p>
+    </form>
+    {% else %}
+    <p>Click the button to log out</p>
+    <button onclick="window.location.href='/logout'">Logout</button>
+    {% endif %}
+  </body>
+</html>

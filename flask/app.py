@@ -1,7 +1,9 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session
 import os
 
 app = Flask(__name__)
+# Set this secret key to enable session management
+app.secret_key = "amc_se_wd"
 
 # Tell the application where to store uploaded files
 # We created a folder called uploads but you can name it as you like
@@ -11,7 +13,8 @@ app.config["UPLOAD_FOLDER"] = "uploads"
 # Attach a decorator to the function that handles the route
 @app.route("/")
 def hello_world():
-    return "Hello, World!"
+    username = session.get("username") if session.get("username") else "Guest"
+    return f"Hello, {username}!"
 
 
 @app.route("/intro", methods=["GET", "POST"])
@@ -81,3 +84,33 @@ def fileUploading():
 
     # Pass the file name into the template to display to the user
     return render_template("file_upload.html", uploaded_file=profile_pic.filename)
+
+
+@app.route("/static-login", methods=["GET", "POST"])
+def staticLogin():
+    logged_in = False
+    username = "Guest"
+
+    if request.method == "POST":
+        # Query the database for a user with the given credentials
+        # If the user exists, set pull the user data and assign to the session variables
+
+        username = request.form.get("username")
+        logged_in = True
+
+    return render_template("login.html", username=username, logged_in=logged_in)
+
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    logged_in = session.get("logged_in") if session.get("logged_in") else False
+    username = session["username"] if session.get("logged_in") else "Guest"
+
+    if request.method == "POST":
+        # Query the database for a user with the given credentials
+        # If the user exists, set pull the user data and assign to the session variables
+
+        session["username"] = request.form.get("username")
+        session["logged_in"] = True
+
+    return render_template("login.html", username=username, logged_in=logged_in)
